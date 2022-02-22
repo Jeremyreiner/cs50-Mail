@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('compose-form').addEventListener('submit', (event) => send_mail(event));
 
     // By default, load the inbox
-    load_mailbox('inbox');
+    load_mailbox('inbox'); 
 });
 
 function compose_email() {
