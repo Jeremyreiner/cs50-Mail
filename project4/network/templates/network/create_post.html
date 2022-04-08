@@ -1,0 +1,17 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container text-center" id="all-posts">
+    <div class="container text-center" id="create-post">
+        <h4>Create Post</h4>
+        <form id='create-post' action="{% url 'index'%}" method='POST'>
+            {% csrf_token %}
+            <div class="form-group">
+                    {{ form.as_p }}
+                <input class="px-3 py-2 btn-primary" type="submit" value="Save">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

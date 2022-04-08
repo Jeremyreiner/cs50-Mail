@@ -1,0 +1,24 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container text-center" id="all-posts">
+    <h3>All Posts</h3><hr>
+    {% for post in page_obj %} 
+        <div class="card m-3" id='posts'>
+            <div class="card-body">
+                <h5 class="card-title">{{post.user}}</h5>
+                {% if post.user.id == request.user.id %}
+                    <a href="#">Edit Post</a>
+                {% endif %}
+                <p class="card-text"><p>{{post.content}}</p>
+                <p class="card-text"><p><small>{{post.timestamp}}</small></p>
+                <p class="card-text"><p>Likes: {{post.likes.count}}</p>
+            </div>
+        </div>
+    {% empty %}
+        <li>no posts</li>
+    {% endfor %}
+</div>
+
+{% endblock %}
